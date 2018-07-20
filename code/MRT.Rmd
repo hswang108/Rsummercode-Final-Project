@@ -13,6 +13,7 @@ library(tidyverse)
 library(ggmap)
 library(mapproj)
 library(ggplot2)
+library(readxl)
 ```
 
 ```{r}
@@ -27,5 +28,35 @@ for(i in 1:7){
 }
 MRT.df <- rbindlist(MRT)
 
+MRT.df <- MRT.df %>%
+  select(X1, X2)
+
+colnames(MRT.df) <- c("Line", "Station")
+
+MRT.df$Station <- gsub("[A-Za-z0-9]+", "", MRT.df$Station)
+MRT.df$Line <- gsub("[A-Za-z0-9]+", "", MRT.df$Line)
+
+MRT1 <- MRT.df %>%
+  filter(duplicated(Station) == T) 
+
+colnames(MRT1)[1] <- "Line2"
+
+MRT.df <- MRT.df %>%
+  filter(duplicated(Station) == F)
+
+MRT <- merge(MRT.df, MRT1, all.x = T)
+MRT$Station <- paste0("捷運", MRT$Station)
+
+write.csv(MRT, "MRT.csv")
+```
+
+
+```{r}
+MRTlon <- read_excel("/Users/penny/Documents/GitHub/Rsummercode-Final-Project/data/MRTlon.xlsx")
+
+MRTlon$Station <- paste0("捷運", MRTlon$Station)
+
+MRT <- merge(MRT, MRTlon, all = T)
+write.csv(MRT, "MRT.csv")
 ```
 

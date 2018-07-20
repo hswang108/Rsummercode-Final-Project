@@ -4,7 +4,7 @@ output: html_notebook
 ---
 
 ```{r}
-install.packages("raster")
+# install.packages("raster")
 library(data.table)
 library(dplyr)
 library(tidyverse)
@@ -17,8 +17,7 @@ library(rgdal)
 
 
 ```{r}
-setwd("/Volumes/ntu/R程式作業/Final")
-Taiwan <- readOGR("/Volumes/ntu/R程式作業/Final/mapdata201805310314/“, “COUNTY_MOI_1070516")
+Taiwan <- readOGR("/Users/penny/Documents/GitHub/Rsummercode-Final-Project/data/mapdata201805310314/", "COUNTY_MOI_1070516")
 head(Taiwan)
 ```
 
@@ -27,11 +26,32 @@ taiwan.plot <- fortify(Taiwan)
 ```
 
 ```{r}
+Taipei_building[is.na(Taipei_building$Unit),]$Unit <- Taipei_building[is.na(Taipei_building$Unit),]$Total / Taipei_building[is.na(Taipei_building$Unit),]$Building
+
 tpemap <- ggplot() +
     geom_polygon(data = taiwan.plot[taiwan.plot$id == 11,], 
                  aes(x = long, y = lat, group = group), 
-                 color = "black", size = 0.25) +
+                 colour = "black", 
+                 fill = "white",
+                 size = 0.25) +
+    geom_point(data = Taipei_building[(Taipei_building$Unit < 100) & (Taipei_building$Unit >= 20),],
+               aes(x = lon, y = lat, color = Unit),
+               size = 0.001) +
+    scale_color_gradient(low="yellow", high="red", limits = c(20,100)) +
+    geom_point(data = Taipei_building[Taipei_building$Unit >= 100,],
+               aes(x = lon, y = lat),
+               colour = "red",
+               size = 0.001) +
+    geom_point(data = Taipei_building[Taipei_building$Unit < 20,],
+               aes(x = lon, y = lat),
+               colour = "yellow",
+               size = 0.001) + 
+    geom_point(data = MRT,
+               aes(x = lon, y = lat),
+               colour = "blue",
+               size = 0.3) +
     coord_map() 
 print(tpemap)
+
 ```
 

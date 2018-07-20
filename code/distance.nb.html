@@ -146,7 +146,7 @@ $(document).ready(function () {
 </style>
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("MRT.Rmd");
+  window.initializeSourceEmbed("distance.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
@@ -178,85 +178,72 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShodHRyKVxuYGBgIn0= -->
-<pre class="r"><code>library(httr)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBpbnN0YWxsLnBhY2thZ2VzKFwiZ2Vvc3BoZXJlXCIpXG5saWJyYXJ5KGdlb3NwaGVyZSlcbmxpYnJhcnkoZGF0YS50YWJsZSlcbmBgYCJ9 -->
+<pre class="r"><code># install.packages(&quot;geosphere&quot;)
+library(geosphere)
+library(data.table)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDigJhodHRy4oCZIHdhcyBidWlsdCB1bmRlciBSIHZlcnNpb24gMy4zLjJcbiJ9 -->
-<pre><code>package ‘httr’ was built under R version 3.3.2</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDigJhkYXRhLnRhYmxl4oCZIHdhcyBidWlsdCB1bmRlciBSIHZlcnNpb24gMy4zLjJkYXRhLnRhYmxlIDEuMTAuNC4zXG4qKioqKioqKioqXG5UaGlzIGluc3RhbGxhdGlvbiBvZiBkYXRhLnRhYmxlIGhhcyBub3QgZGV0ZWN0ZWQgT3Blbk1QIHN1cHBvcnQuIEl0IHNob3VsZCBzdGlsbCB3b3JrIGJ1dCBpbiBzaW5nbGUtdGhyZWFkZWQgbW9kZS4gSWYgdGhpcyBpcyBhIE1hYywgcGxlYXNlIGVuc3VyZSB5b3UgYXJlIHVzaW5nIFI+PTMuNC4wIGFuZCBoYXZlIGluc3RhbGxlZCB0aGUgTWFjT1MgYmluYXJ5IHBhY2thZ2UgZnJvbSBDUkFOOiBzZWUgP2luc3RhbGwucGFja2FnZXMsIHRoZSAndHlwZT0nIGFyZ3VtZW50IGFuZCB0aGUgJ0JpbmFyeSBwYWNrYWdlcycgc2VjdGlvbi4gSWYgeW91IGNvbXBpbGVkIGZyb20gc291cmNlLCBwbGVhc2UgcmVpbnN0YWxsIGFuZCBwcmVjaXNlbHkgZm9sbG93IHRoZSBpbnN0YWxsYXRpb24gaW5zdHJ1Y3Rpb25zIG9uIHRoZSBkYXRhLnRhYmxlIGhvbWVwYWdlLiBUaGlzIHdhcm5pbmcgbWVzc2FnZSBzaG91bGQgbm90IG9jY3VyIG9uIFdpbmRvd3Mgb3IgTGludXguIElmIGl0IGRvZXMgYW5kIHlvdSd2ZSBmb2xsb3dlZCB0aGUgaW5zdGFsbGF0aW9uIGluc3RydWN0aW9ucyBvbiB0aGUgZGF0YS50YWJsZSBob21lcGFnZSwgcGxlYXNlIGZpbGUgYSBHaXRIdWIgaXNzdWUuXG4qKioqKioqKioqXG4gIFRoZSBmYXN0ZXN0IHdheSB0byBsZWFybiAoYnkgZGF0YS50YWJsZSBhdXRob3JzKTogaHR0cHM6Ly93d3cuZGF0YWNhbXAuY29tL2NvdXJzZXMvZGF0YS1hbmFseXNpcy10aGUtZGF0YS10YWJsZS13YXlcbiAgRG9jdW1lbnRhdGlvbjogP2RhdGEudGFibGUsIGV4YW1wbGUoZGF0YS50YWJsZSkgYW5kIGJyb3dzZVZpZ25ldHRlcyhcImRhdGEudGFibGVcIilcbiAgUmVsZWFzZSBub3RlcywgdmlkZW9zIGFuZCBzbGlkZXM6IGh0dHA6Ly9yLWRhdGF0YWJsZS5jb21cbiJ9 -->
+<pre><code>package ‘data.table’ was built under R version 3.3.2data.table 1.10.4.3
+**********
+This installation of data.table has not detected OpenMP support. It should still work but in single-threaded mode. If this is a Mac, please ensure you are using R&gt;=3.4.0 and have installed the MacOS binary package from CRAN: see ?install.packages, the 'type=' argument and the 'Binary packages' section. If you compiled from source, please reinstall and precisely follow the installation instructions on the data.table homepage. This warning message should not occur on Windows or Linux. If it does and you've followed the installation instructions on the data.table homepage, please file a GitHub issue.
+**********
+  The fastest way to learn (by data.table authors): https://www.datacamp.com/courses/data-analysis-the-data-table-way
+  Documentation: ?data.table, example(data.table) and browseVignettes(&quot;data.table&quot;)
+  Release notes, videos and slides: http://r-datatable.com</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh4bWwyKVxubGlicmFyeShydmVzdClcbmBgYCJ9 -->
-<pre class="r"><code>library(xml2)
-library(rvest)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShkcGx5cilcbmBgYCJ9 -->
+<pre class="r"><code>library(dplyr)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYcnZlc3TigJlcblxuVGhlIGZvbGxvd2luZyBvYmplY3QgaXMgbWFza2VkIGZyb20g4oCYcGFja2FnZTpwdXJycuKAmTpcblxuICAgIHBsdWNrXG5cblRoZSBmb2xsb3dpbmcgb2JqZWN0IGlzIG1hc2tlZCBmcm9tIOKAmHBhY2thZ2U6cmVhZHLigJk6XG5cbiAgICBndWVzc19lbmNvZGluZ1xuIn0= -->
-<pre><code>
-Attaching package: ‘rvest’
+<!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDigJhkcGx5cuKAmSB3YXMgYnVpbHQgdW5kZXIgUiB2ZXJzaW9uIDMuMy4yXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYZHBseXLigJlcblxuVGhlIGZvbGxvd2luZyBvYmplY3RzIGFyZSBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOmRhdGEudGFibGXigJk6XG5cbiAgICBiZXR3ZWVuLCBmaXJzdCwgbGFzdFxuXG5UaGUgZm9sbG93aW5nIG9iamVjdHMgYXJlIG1hc2tlZCBmcm9tIOKAmHBhY2thZ2U6c3RhdHPigJk6XG5cbiAgICBmaWx0ZXIsIGxhZ1xuXG5UaGUgZm9sbG93aW5nIG9iamVjdHMgYXJlIG1hc2tlZCBmcm9tIOKAmHBhY2thZ2U6YmFzZeKAmTpcblxuICAgIGludGVyc2VjdCwgc2V0ZGlmZiwgc2V0ZXF1YWwsIHVuaW9uXG4ifQ== -->
+<pre><code>package ‘dplyr’ was built under R version 3.3.2
+Attaching package: ‘dplyr’
 
-The following object is masked from ‘package:purrr’:
+The following objects are masked from ‘package:data.table’:
 
-    pluck
+    between, first, last
 
-The following object is masked from ‘package:readr’:
+The following objects are masked from ‘package:stats’:
 
-    guess_encoding</code></pre>
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShkYXRhLnRhYmxlKVxubGlicmFyeShkcGx5cilcbmxpYnJhcnkodGlkeXZlcnNlKVxubGlicmFyeShnZ21hcClcbmBgYCJ9 -->
-<pre class="r"><code>library(data.table)
-library(dplyr)
-library(tidyverse)
-library(ggmap)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
+<pre class="r"><code>library(tidyverse)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiR29vZ2xlIE1hcHMgQVBJIFRlcm1zIG9mIFNlcnZpY2U6IGh0dHA6Ly9kZXZlbG9wZXJzLmdvb2dsZS5jb20vbWFwcy90ZXJtcy5cblBsZWFzZSBjaXRlIGdnbWFwIGlmIHlvdSB1c2UgaXQ6IHNlZSBjaXRhdGlvbignZ2dtYXAnKSBmb3IgZGV0YWlscy5cbiJ9 -->
-<pre><code>Google Maps API Terms of Service: http://developers.google.com/maps/terms.
-Please cite ggmap if you use it: see citation('ggmap') for details.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShtYXBwcm9qKVxuYGBgIn0= -->
-<pre class="r"><code>library(mapproj)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiBtYXBzXG5cbkF0dGFjaGluZyBwYWNrYWdlOiDigJhtYXBz4oCZXG5cblRoZSBmb2xsb3dpbmcgb2JqZWN0IGlzIG1hc2tlZCBmcm9tIOKAmHBhY2thZ2U6cHVycnLigJk6XG5cbiAgICBtYXBcbiJ9 -->
-<pre><code>Loading required package: maps
-
-Attaching package: ‘maps’
-
-The following object is masked from ‘package:purrr’:
-
-    map</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShnZ3Bsb3QyKVxuYGBgIn0= -->
-<pre class="r"><code>library(ggplot2)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudXJsIDwtIFwiaHR0cDovL2Jsb2cueHVpdGUubmV0L3RjY2hpYW4vdHJhdmVsLzQ0NzUyOTUzXCJcbk1SVCA8LSBsaXN0KClcbmRvYyA8LSByZWFkX2h0bWwodXJsKVxuTVJUW1s3XV0gPC0gaHRtbF90YWJsZShodG1sX25vZGVzKGRvYywgXCIjY29udGVudF9hbGwgPiB0YWJsZTpudGgtY2hpbGQoMzkpXCIpLCBmaWxsID0gVFJVRSlbWzFdXVxuZm9yKGkgaW4gMTo3KXtcbiAgTVJUW1tpXV0gPC0gTVJUW1tpXV1bLTEsXVxufVxuYGBgIn0= -->
-<pre class="r"><code>url &lt;- &quot;http://blog.xuite.net/tcchian/travel/44752953&quot;
-MRT &lt;- list()
-doc &lt;- read_html(url)
-MRT[[7]] &lt;- html_table(html_nodes(doc, &quot;#content_all &gt; table:nth-child(39)&quot;), fill = TRUE)[[1]]
-for(i in 1:7){
-  MRT[[i]] &lt;- MRT[[i]][-1,]
-}</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gTVJUW1tpXV0gOiDkuIvmqJnotoXlh7rpgornlYxcbiJ9 -->
-<pre><code>Error in MRT[[i]] : 下標超出邊界</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiXHUwMDFiWzMwbeKUgCBcdTAwMWJbMW1BdHRhY2hpbmcgcGFja2FnZXNcdTAwMWJbMjJtIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2UgMS4yLjEg4pSAXHUwMDFiWzM5bVxuXHUwMDFiWzMwbVx1MDAxYlszMm3inJRcdTAwMWJbMzBtIFx1MDAxYlszNG1nZ3Bsb3QyXHUwMDFiWzMwbSAyLjIuMSAgICAgXHUwMDFiWzMybeKclFx1MDAxYlszMG0gXHUwMDFiWzM0bXJlYWRyICBcdTAwMWJbMzBtIDEuMS4xXG5cdTAwMWJbMzJt4pyUXHUwMDFiWzMwbSBcdTAwMWJbMzRtdGliYmxlIFx1MDAxYlszMG0gMS40LjIgICAgIFx1MDAxYlszMm3inJRcdTAwMWJbMzBtIFx1MDAxYlszNG1wdXJyciAgXHUwMDFiWzMwbSAwLjIuNVxuXHUwMDFiWzMybeKclFx1MDAxYlszMG0gXHUwMDFiWzM0bXRpZHlyICBcdTAwMWJbMzBtIDAuOC4xICAgICBcdTAwMWJbMzJt4pyUXHUwMDFiWzMwbSBcdTAwMWJbMzRtc3RyaW5nclx1MDAxYlszMG0gMS4zLjFcblx1MDAxYlszMm3inJRcdTAwMWJbMzBtIFx1MDAxYlszNG1nZ3Bsb3QyXHUwMDFiWzMwbSAyLjIuMSAgICAgXHUwMDFiWzMybeKclFx1MDAxYlszMG0gXHUwMDFiWzM0bWZvcmNhdHNcdTAwMWJbMzBtIDAuMy4wXHUwMDFiWzM5bVxucGFja2FnZSDigJhnZ3Bsb3Qy4oCZIHdhcyBidWlsdCB1bmRlciBSIHZlcnNpb24gMy4zLjJwYWNrYWdlIOKAmHJlYWRy4oCZIHdhcyBidWlsdCB1bmRlciBSIHZlcnNpb24gMy4zLjJcdTAwMWJbMzBt4pSAIFx1MDAxYlsxbUNvbmZsaWN0c1x1MDAxYlsyMm0g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAIHRpZHl2ZXJzZV9jb25mbGljdHMoKSDilIBcblx1MDAxYlszMW3inJZcdTAwMWJbMzBtIFx1MDAxYlszNG1kcGx5clx1MDAxYlszMG06Olx1MDAxYlszMm1iZXR3ZWVuKClcdTAwMWJbMzBtICAgbWFza3MgXHUwMDFiWzM0bWRhdGEudGFibGVcdTAwMWJbMzBtOjpiZXR3ZWVuKClcblx1MDAxYlszMW3inJZcdTAwMWJbMzBtIFx1MDAxYlszNG1kcGx5clx1MDAxYlszMG06Olx1MDAxYlszMm1maWx0ZXIoKVx1MDAxYlszMG0gICAgbWFza3MgXHUwMDFiWzM0bXN0YXRzXHUwMDFiWzMwbTo6ZmlsdGVyKClcblx1MDAxYlszMW3inJZcdTAwMWJbMzBtIFx1MDAxYlszNG1kcGx5clx1MDAxYlszMG06Olx1MDAxYlszMm1maXJzdCgpXHUwMDFiWzMwbSAgICAgbWFza3MgXHUwMDFiWzM0bWRhdGEudGFibGVcdTAwMWJbMzBtOjpmaXJzdCgpXG5cdTAwMWJbMzFt4pyWXHUwMDFiWzMwbSBcdTAwMWJbMzRtZHBseXJcdTAwMWJbMzBtOjpcdTAwMWJbMzJtbGFnKClcdTAwMWJbMzBtICAgICAgIG1hc2tzIFx1MDAxYlszNG1zdGF0c1x1MDAxYlszMG06OmxhZygpXG5cdTAwMWJbMzFt4pyWXHUwMDFiWzMwbSBcdTAwMWJbMzRtZHBseXJcdTAwMWJbMzBtOjpcdTAwMWJbMzJtbGFzdCgpXHUwMDFiWzMwbSAgICAgIG1hc2tzIFx1MDAxYlszNG1kYXRhLnRhYmxlXHUwMDFiWzMwbTo6bGFzdCgpXG5cdTAwMWJbMzFt4pyWXHUwMDFiWzMwbSBcdTAwMWJbMzRtcHVycnJcdTAwMWJbMzBtOjpcdTAwMWJbMzJtdHJhbnNwb3NlKClcdTAwMWJbMzBtIG1hc2tzIFx1MDAxYlszNG1kYXRhLnRhYmxlXHUwMDFiWzMwbTo6dHJhbnNwb3NlKClcdTAwMWJbMzltXG4ifQ== -->
+<pre><code>[30m─ [1mAttaching packages[22m ─────────── tidyverse 1.2.1 ─[39m
+[30m[32m✔[30m [34mggplot2[30m 2.2.1     [32m✔[30m [34mreadr  [30m 1.1.1
+[32m✔[30m [34mtibble [30m 1.4.2     [32m✔[30m [34mpurrr  [30m 0.2.5
+[32m✔[30m [34mtidyr  [30m 0.8.1     [32m✔[30m [34mstringr[30m 1.3.1
+[32m✔[30m [34mggplot2[30m 2.2.1     [32m✔[30m [34mforcats[30m 0.3.0[39m
+package ‘ggplot2’ was built under R version 3.3.2package ‘readr’ was built under R version 3.3.2[30m─ [1mConflicts[22m ──────────── tidyverse_conflicts() ─
+[31m✖[30m [34mdplyr[30m::[32mbetween()[30m   masks [34mdata.table[30m::between()
+[31m✖[30m [34mdplyr[30m::[32mfilter()[30m    masks [34mstats[30m::filter()
+[31m✖[30m [34mdplyr[30m::[32mfirst()[30m     masks [34mdata.table[30m::first()
+[31m✖[30m [34mdplyr[30m::[32mlag()[30m       masks [34mstats[30m::lag()
+[31m✖[30m [34mdplyr[30m::[32mlast()[30m      masks [34mdata.table[30m::last()
+[31m✖[30m [34mpurrr[30m::[32mtranspose()[30m masks [34mdata.table[30m::transpose()[39m</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTVJUbG9uIDwtIHJlYWRfZXhjZWwoXCJkYXRhL01SVGxvbi54bHN4XCIpXG5cbmBgYCJ9 -->
-<pre class="r"><code>MRTlon &lt;- read_excel(&quot;data/MRTlon.xlsx&quot;)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmV0dXJuKGRmKVxuXG5gYGAifQ== -->
+<pre class="r"><code>return(df)
 </code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoi6Yyv6KqkOiBgcGF0aGAgZG9lcyBub3QgZXhpc3Q6IOKAmGRhdGEvTVJUbG9uLnhsc3jigJlcbiJ9 -->
-<pre><code>錯誤: `path` does not exist: ‘data/MRTlon.xlsx’</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoi6Yyv6KqkOiDmspLmnInlj6/lm57ov5TnmoTlh73mlbgsIOi3s+WIsOacgOmrmOWxpFxuIn0= -->
+<pre><code>錯誤: 沒有可回返的函數, 跳到最高層</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CmxpYnJhcnkoaHR0cikKbGlicmFyeSh4bWwyKQpsaWJyYXJ5KHJ2ZXN0KQpsaWJyYXJ5KGRhdGEudGFibGUpCmxpYnJhcnkoZHBseXIpCmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KGdnbWFwKQpsaWJyYXJ5KG1hcHByb2opCmxpYnJhcnkoZ2dwbG90MikKbGlicmFyeShyZWFkeGwpCmBgYAoKYGBge3J9CnVybCA8LSAiaHR0cDovL2Jsb2cueHVpdGUubmV0L3RjY2hpYW4vdHJhdmVsLzQ0NzUyOTUzIgoKTVJUIDwtIGxpc3QoKQpkb2MgPC0gcmVhZF9odG1sKHVybCkKTVJUW1s3XV0gPC0gaHRtbF90YWJsZShodG1sX25vZGVzKGRvYywgIiNjb250ZW50X2FsbCA+IHRhYmxlOm50aC1jaGlsZCgzOSkiKSwgZmlsbCA9IFRSVUUpW1sxXV0KCmZvcihpIGluIDE6Nyl7CiAgTVJUW1tpXV0gPC0gTVJUW1tpXV1bLTEsXQp9Ck1SVC5kZiA8LSByYmluZGxpc3QoTVJUKQoKTVJULmRmIDwtIE1SVC5kZiAlPiUKICBzZWxlY3QoWDEsIFgyKQoKY29sbmFtZXMoTVJULmRmKSA8LSBjKCJMaW5lIiwgIlN0YXRpb24iKQoKTVJULmRmJFN0YXRpb24gPC0gZ3N1YigiW0EtWmEtejAtOV0rIiwgIiIsIE1SVC5kZiRTdGF0aW9uKQpNUlQuZGYkTGluZSA8LSBnc3ViKCJbQS1aYS16MC05XSsiLCAiIiwgTVJULmRmJExpbmUpCgpNUlQxIDwtIE1SVC5kZiAlPiUKICBmaWx0ZXIoZHVwbGljYXRlZChTdGF0aW9uKSA9PSBUKSAKCmNvbG5hbWVzKE1SVDEpWzFdIDwtICJMaW5lMiIKCk1SVC5kZiA8LSBNUlQuZGYgJT4lCiAgZmlsdGVyKGR1cGxpY2F0ZWQoU3RhdGlvbikgPT0gRikKCk1SVCA8LSBtZXJnZShNUlQuZGYsIE1SVDEsIGFsbC54ID0gVCkKTVJUJFN0YXRpb24gPC0gcGFzdGUwKCLmjbfpgYsiLCBNUlQkU3RhdGlvbikKCndyaXRlLmNzdihNUlQsICJNUlQuY3N2IikKYGBgCgoKYGBge3J9Ck1SVGxvbiA8LSByZWFkX2V4Y2VsKCIvVXNlcnMvcGVubnkvRG9jdW1lbnRzL0dpdEh1Yi9Sc3VtbWVyY29kZS1GaW5hbC1Qcm9qZWN0L2RhdGEvTVJUbG9uLnhsc3giKQoKTVJUbG9uJFN0YXRpb24gPC0gcGFzdGUwKCLmjbfpgYsiLCBNUlRsb24kU3RhdGlvbikKCk1SVCA8LSBtZXJnZShNUlQsIE1SVGxvbiwgYWxsID0gVCkKd3JpdGUuY3N2KE1SVCwgIk1SVC5jc3YiKQpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CiMgaW5zdGFsbC5wYWNrYWdlcygiZ2Vvc3BoZXJlIikKbGlicmFyeShnZW9zcGhlcmUpCmxpYnJhcnkoZGF0YS50YWJsZSkKbGlicmFyeShkcGx5cikKbGlicmFyeSh0aWR5dmVyc2UpCmBgYAoKYGBge3J9Ck1SVCA8LSByZWFkX2NzdigiL1VzZXJzL3Blbm55L0RvY3VtZW50cy9HaXRIdWIvUnN1bW1lcmNvZGUtRmluYWwtUHJvamVjdC9jb2RlL01SVC5jc3YiKQpUYWlwZWlfYnVpbGRpbmcgPC0gcmVhZFJEUygiL1VzZXJzL3Blbm55L0RvY3VtZW50cy9HaXRIdWIvUnN1bW1lcmNvZGUtRmluYWwtUHJvamVjdC9jb2RlL1RhaXBlaV9idWlsZGluZyIpCgptaW5kaXN0IDwtIGZ1bmN0aW9uKGNvb3JkaW5hdGUpewpkaXN0IDwtIGMoKQpmb3IoaSBpbiAxOmxlbmd0aChNUlQpKXsKICBkaXN0IDwtIGMoZGlzdCwgZGlzdG0oY29vcmRpbmF0ZSwgTVJUW2ksYyg2LDUpXSkpCn0KbWluZGlzdGFuY2UgPC0gbWluKGRpc3QpCnN0YXRpb24gPC0gTVJUJFN0YXRpb25bd2hpY2goZGlzdCA9PSBtaW4oZGlzdCkpXQpkZiA8LSBtYXRyaXgoYyhtaW5kaXN0YW5jZSwgc3RhdGlvbiksIG5yb3cgPSAxKQoKcmV0dXJuKGRmKQp9CgpUYWlwZWlfYnVpbGRpbmckZGlzdGFuY2UgPC0gYyhOQSkKVGFpcGVpX2J1aWxkaW5nJFN0YXRpb24gPC0gYyhOQSkKCmZvcihqIGluIDE6MjQwMCl7CiAgVGFpcGVpX2J1aWxkaW5nW2osYygyMSwyMildIDwtIG1pbmRpc3QoVGFpcGVpX2J1aWxkaW5nW2osYygxOSwyMCldKQp9CgpzYXZlUkRTKFRhaXBlaV9idWlsZGluZywgZmlsZSA9ICJUYWlwZWlfYnVpbGRpbmciKQpgYGAKCg==</div>
 
 
 
