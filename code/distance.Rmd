@@ -17,21 +17,22 @@ Taipei_building <- readRDS("/Users/penny/Documents/GitHub/Rsummercode-Final-Proj
 
 mindist <- function(coordinate){
 dist <- c()
-for(i in 1:length(MRT)){
-  dist <- c(dist, distm(coordinate, MRT[i,c(6,5)]))
+for(i in 1:108){
+  dist[i] <- distm(coordinate, MRT[i,c(6,5)])
 }
-mindistance <- min(dist)
-station <- MRT$Station[which(dist == min(dist))]
-df <- matrix(c(mindistance, station), nrow = 1)
 
-return(df)
+distance <- min(dist)
+station <- MRT$Station[which.min(dist)]
+
+return(list(distance, station))
 }
 
 Taipei_building$distance <- c(NA)
 Taipei_building$Station <- c(NA)
 
 for(j in 1:2400){
-  Taipei_building[j,c(21,22)] <- mindist(Taipei_building[j,c(19,20)])
+  Taipei_building[j,21] <- mindist(Taipei_building[j,c(19,20)])[[1]]
+  Taipei_building[j,22] <- mindist(Taipei_building[j,c(19,20)])[[2]]
 }
 
 saveRDS(Taipei_building, file = "Taipei_building")
