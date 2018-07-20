@@ -1,0 +1,56 @@
+---
+title: "R Notebook"
+Author: "Chen, Yi-Wen"
+output: html_notebook
+---
+
+作業內容：在台北市地圖上標上信義房屋中正區房屋買賣實價登錄前100筆資料的地點
+
+步驟：
+1.載入所需套件
+2.讀入台北市房屋買賣實價登錄資料（資料爬取方式見AS04pre檔）
+3.找出地址相對應的經緯度
+4.畫出地圖
+
+
+##載入所需套件
+```{r}
+# install.packages("ggmap", type = "source")
+library(httr)
+library(xml2)
+library(rvest)
+library(data.table)
+library(dplyr)
+library(tidyverse)
+library(ggmap)
+library(mapproj)
+library(ggplot2)
+```
+
+##讀入檔案
+```{r}
+setwd("/Volumes/ntu/R程式作業/Final")
+readRDS("Taipei_building")
+head(Taipei_building)
+```
+
+##找出地址對應經緯度
+```{r}
+# 使用geocode找出地址的經緯度座標
+while(sum(is.na(Taipei_building$lon[1201:2400])) != 0){
+for(i in 1201:2400){
+    if(is.na(Taipei_building$lon[i]) == T){
+        geotype <- geocode(Taipei_building$Address[i])
+        Taipei_building$lon[i] <- geotype$lon
+        Taipei_building$lat[i] <- geotype$lat
+    } 
+}
+}
+
+geocodeQueryCheck()
+head(Taipei_building)
+saveRDS(Taipei_building, file = "Taipei_building")
+```
+
+```
+

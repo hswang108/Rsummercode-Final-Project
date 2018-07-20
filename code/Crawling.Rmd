@@ -1,0 +1,155 @@
+---
+title: "R Notebook"
+Author: "Chen, Yi-Wen"
+output: html_notebook
+---
+
+作業前置作業：爬取信義房屋台北市實價登錄資料（含中正、大同、中山區）
+
+步驟：
+1.載入所需套件
+2.設定爬蟲與資料清理函數，方便重複抓取並整理資料
+3.將整理好的資料存成list
+4.用rbindlist合併資料
+
+##載入所需套件
+```{r}
+library(httr)
+library(xml2)
+library(rvest)
+library(data.table)
+library(dplyr)
+```
+
+
+##定義爬蟲與資料清理函數
+```{r}
+## 函式範例在最下方
+
+# 爬蟲函式
+#List: list name
+#pages: Total how many pages to crawl
+#urlpre: url ex: "http://tradeinfo.sinyi.com.tw/itemList.html?a1=100&s1=1&s2=10507_10707&p=%s"
+Crawling <- function(pages, urlpre){
+List <- list()
+for(i in 1:pages){
+    url <- sprintf(urlpre, i)
+doc <- read_html(url)
+table <- html_table(html_nodes(doc, "#newTable"))
+print(paste0("Get page:", i))
+data <- table[[1]]
+List[[i]] <- data
+}
+return(List)  ##先存成list，等下在合併
+}
+
+# 資料清理
+# list: Data list from crawling
+# Data: The name of final data
+# District_ch: 中文區名 ex:"中山"
+Cleaning <- function(List, District_ch){
+df <- rbindlist(List) ##合併抓取資料
+names(df) <- c("Date", "Address", "Type", "Total", "Unit", "Building", "Area", "Age", "Floor", "Pattern") ##重新命名變數
+Data <- df %>%
+    filter(Date != Address) %>%    ##把備註刪掉
+    mutate(District = District_ch,     ##整理資料
+           Year = as.numeric(substring(Date, 1,3)),
+           month = as.numeric(substring(Date, 5,6)),
+           MRT = substring(Pattern, 9),
+           Pattern = substring(Pattern, 1,8),
+           Area = as.numeric(str_sub(Area,-nchar(Area), -2)),
+           Age = as.numeric(str_sub(Age,-nchar(Age), -2)),
+           Address = sub("檢視位置", "", Address),
+           Total = as.numeric(gsub("萬", "", sub("()", "", sub("\\(含車位.*萬\\)", "", Total)))),
+           Unit = as.numeric(gsub("\\*", "", gsub("萬", "", sub("\\(扣除車位價及車坪\\)", "", Unit)))),
+           Building = as.numeric(gsub("坪", "", sub("\\(含車位.*坪\\)", "", Building))),
+           Floor = as.numeric(sub("/共.*層", "", Floor))) 
+
+Room <- c()
+Hall <- c()
+Bath <- c()
+for(i in 1:length(Data$Pattern)){
+   Room <- c(Room, as.numeric(substr(strsplit(Data$Pattern, "/", fixed = T)[[i]][1],1,1))) 
+   Hall <- c(Hall, as.numeric(substr(strsplit(Data$Pattern, "/", fixed = T)[[i]][2],1,1)))
+   Bath <- c(Bath, as.numeric(substr(strsplit(Data$Pattern, "/", fixed = T)[[i]][3],1,1)))
+}
+
+Data$Room <- Room 
+Data$Hall <- Hall 
+Data$Bath <- Bath 
+
+return(Data)
+}
+```
+
+
+##爬中正區的資料
+```{r}
+Taipei.list <- list()
+Chung_cheng.list <- Crawling(117, "http://tradeinfo.sinyi.com.tw/itemList.html?a1=100&s1=1&s2=10507_10707&p=%s")
+
+Taipei.list[[1]] <- Cleaning(Chung_cheng.list, "中正")
+head(Taipei.list[[1]])
+```
+##爬下大同區資料
+```{r}
+Da_tung.list <- Crawling(90, "http://tradeinfo.sinyi.com.tw/itemList.html?a1=103&s1=1&s2=10507_10707&p=%s")
+
+Taipei.list[[2]] <- Cleaning(Da_tung.list, "大同")
+head(Taipei.list[[2]])
+```
+##爬下中山區資料
+```{r}
+Chung_shan.list <- Crawling(306, "http://tradeinfo.sinyi.com.tw/itemList.html?a1=104&s1=1&s2=10507_10707&p=%s")
+
+Taipei.list[[3]] <- Cleaning(Chung_shan.list, "中山")
+head(Taipei.list[[3]])
+```
+##合併三區資料並輸出
+```{r}
+Taipei <- rbindlist(Taipei.list)
+head(Taipei)
+write.csv(Taipei, file = "Taipei.csv")
+```
+
+##函式範例：中正區
+```{r}
+Chung_cheng <- list()
+for(i in 1:117){
+    url <- sprintf("http://tradeinfo.sinyi.com.tw/itemList.html?a1=100&s1=1&s2=10507_10707&p=%s", i)
+doc <- read_html(url)
+table <- html_table(html_nodes(doc, "#newTable"))
+data <- table[[1]]
+Chung_cheng[[i]] <- data
+}
+
+Chung_cheng.df <- rbindlist(Chung_cheng)
+names(Chung_cheng.df) <- c("Date", "Address", "Type", "Total", "Unit", "Building", "Area", "Age", "Floor", "Pattern")
+Chung_cheng <- Chung_cheng.df %>%
+    filter(Date != Address) %>%
+    mutate(District = "中正",
+           Year = as.numeric(substring(Date, 1,3)),
+           month = as.numeric(substring(Date, 5,6)),
+           MRT = substring(Pattern, 9),
+           Pattern = substring(Pattern, 1,8),
+           Area = as.numeric(str_sub(Area,-nchar(Area), -2)),
+           Age = as.numeric(str_sub(Age,-nchar(Age), -2)),
+           Address = sub("檢視位置", "", Address),
+           Total = as.numeric(gsub("萬", "", sub("()", "", sub("\\(含車位.*萬\\)", "", Total)))),
+           Unit = as.numeric(gsub("\\*", "", gsub("萬", "", sub("\\(扣除車位價及車坪\\)", "", Unit)))),
+           Building = as.numeric(gsub("坪", "", sub("\\(含車位.*坪\\)", "", Building))),
+           Floor = as.numeric(sub("/共.*層", "", Floor)))
+Room <- c()
+Hall <- c()
+Bath <- c()
+for(i in 1:length(Chung_cheng$Pattern)){
+   Room <- c(Room, as.numeric(substr(strsplit(Chung_cheng$Pattern, "/", fixed = T)[[i]][1],1,1))) 
+   Hall <- c(Hall, as.numeric(substr(strsplit(Chung_cheng$Pattern, "/", fixed = T)[[i]][2],1,1)))
+   Bath <- c(Bath, as.numeric(substr(strsplit(Chung_cheng$Pattern, "/", fixed = T)[[i]][3],1,1)))
+}
+
+Chung_cheng$Room <- Room 
+Chung_cheng$Hall <- Hall 
+Chung_cheng$Bath <- Bath 
+```
+
