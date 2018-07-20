@@ -26,32 +26,38 @@ taiwan.plot <- fortify(Taiwan)
 ```
 
 ```{r}
-Taipei_building[is.na(Taipei_building$Unit),]$Unit <- Taipei_building[is.na(Taipei_building$Unit),]$Total / Taipei_building[is.na(Taipei_building$Unit),]$Building
+# Taipei_building[is.na(Taipei_building$Unit),]$Unit <- Taipei_building[is.na(Taipei_building$Unit),]$Total / Taipei_building[is.na(Taipei_building$Unit),]$Building
 
+plot_map <- function(df, max, min){
+shps <- c("淡水信義線" = 15, "板南線" = 16, "松山新店線" = 17, "中和新蘆線" = 18, "文湖線" = 25, "新北投支線" = 4, "小碧潭支線" = 8)
 tpemap <- ggplot() +
     geom_polygon(data = taiwan.plot[taiwan.plot$id == 11,], 
                  aes(x = long, y = lat, group = group), 
                  colour = "black", 
                  fill = "white",
                  size = 0.25) +
-    geom_point(data = Taipei_building[(Taipei_building$Unit < 100) & (Taipei_building$Unit >= 20),],
+    geom_point(data = df[(df$Unit < max) & (df$Unit >= min),],
                aes(x = lon, y = lat, color = Unit),
                size = 0.001) +
-    scale_color_gradient(low="yellow", high="red", limits = c(20,100)) +
-    geom_point(data = Taipei_building[Taipei_building$Unit >= 100,],
+    scale_color_gradient(low="yellow", high="red", limits = c(min,max)) +
+    geom_point(data = df[df$Unit >= max,],
                aes(x = lon, y = lat),
                colour = "red",
                size = 0.001) +
-    geom_point(data = Taipei_building[Taipei_building$Unit < 20,],
+    geom_point(data = df[df$Unit < min,],
                aes(x = lon, y = lat),
                colour = "yellow",
-               size = 0.001) + 
+               size = 0.001) +   
     geom_point(data = MRT,
-               aes(x = lon, y = lat),
-               colour = "blue",
-               size = 0.3) +
+             aes(x = lon, y = lat, shape = Line),
+             color = "blue",
+             size = 1) +
+    scale_shape_manual(values = shps, guide = F) +
     coord_map() 
-print(tpemap)
+return(tpemap)
+}
 
+print(plot_map(Taipei_building, 100, 20))
+ggsave("tpemap.pdf")
 ```
 

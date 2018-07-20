@@ -29,7 +29,7 @@ library(ggplot2)
 
 ##讀入檔案
 ```{r}
-Taipei_building <- readRDS("Taipei_building")
+Taipei_building <- readRDS("/Users/penny/Documents/GitHub/Rsummercode-Final-Project/code/Taipei_building")
 head(Taipei_building)
 ```
 
@@ -52,6 +52,9 @@ saveRDS(Taipei_building, file = "Taipei_building")
 ```
 
 
+```{r}
+Taipei_building <- Taipei_building[Taipei_building$X1 != 3252,]
+```
 
 
 

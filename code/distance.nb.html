@@ -178,72 +178,60 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBpbnN0YWxsLnBhY2thZ2VzKFwiZ2Vvc3BoZXJlXCIpXG5saWJyYXJ5KGdlb3NwaGVyZSlcbmxpYnJhcnkoZGF0YS50YWJsZSlcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBpbnN0YWxsLnBhY2thZ2VzKFwiZ2Vvc3BoZXJlXCIpXG5saWJyYXJ5KGdlb3NwaGVyZSlcbmBgYCJ9 -->
 <pre class="r"><code># install.packages(&quot;geosphere&quot;)
-library(geosphere)
-library(data.table)</code></pre>
+library(geosphere)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDigJhkYXRhLnRhYmxl4oCZIHdhcyBidWlsdCB1bmRlciBSIHZlcnNpb24gMy4zLjJkYXRhLnRhYmxlIDEuMTAuNC4zXG4qKioqKioqKioqXG5UaGlzIGluc3RhbGxhdGlvbiBvZiBkYXRhLnRhYmxlIGhhcyBub3QgZGV0ZWN0ZWQgT3Blbk1QIHN1cHBvcnQuIEl0IHNob3VsZCBzdGlsbCB3b3JrIGJ1dCBpbiBzaW5nbGUtdGhyZWFkZWQgbW9kZS4gSWYgdGhpcyBpcyBhIE1hYywgcGxlYXNlIGVuc3VyZSB5b3UgYXJlIHVzaW5nIFI+PTMuNC4wIGFuZCBoYXZlIGluc3RhbGxlZCB0aGUgTWFjT1MgYmluYXJ5IHBhY2thZ2UgZnJvbSBDUkFOOiBzZWUgP2luc3RhbGwucGFja2FnZXMsIHRoZSAndHlwZT0nIGFyZ3VtZW50IGFuZCB0aGUgJ0JpbmFyeSBwYWNrYWdlcycgc2VjdGlvbi4gSWYgeW91IGNvbXBpbGVkIGZyb20gc291cmNlLCBwbGVhc2UgcmVpbnN0YWxsIGFuZCBwcmVjaXNlbHkgZm9sbG93IHRoZSBpbnN0YWxsYXRpb24gaW5zdHJ1Y3Rpb25zIG9uIHRoZSBkYXRhLnRhYmxlIGhvbWVwYWdlLiBUaGlzIHdhcm5pbmcgbWVzc2FnZSBzaG91bGQgbm90IG9jY3VyIG9uIFdpbmRvd3Mgb3IgTGludXguIElmIGl0IGRvZXMgYW5kIHlvdSd2ZSBmb2xsb3dlZCB0aGUgaW5zdGFsbGF0aW9uIGluc3RydWN0aW9ucyBvbiB0aGUgZGF0YS50YWJsZSBob21lcGFnZSwgcGxlYXNlIGZpbGUgYSBHaXRIdWIgaXNzdWUuXG4qKioqKioqKioqXG4gIFRoZSBmYXN0ZXN0IHdheSB0byBsZWFybiAoYnkgZGF0YS50YWJsZSBhdXRob3JzKTogaHR0cHM6Ly93d3cuZGF0YWNhbXAuY29tL2NvdXJzZXMvZGF0YS1hbmFseXNpcy10aGUtZGF0YS10YWJsZS13YXlcbiAgRG9jdW1lbnRhdGlvbjogP2RhdGEudGFibGUsIGV4YW1wbGUoZGF0YS50YWJsZSkgYW5kIGJyb3dzZVZpZ25ldHRlcyhcImRhdGEudGFibGVcIilcbiAgUmVsZWFzZSBub3RlcywgdmlkZW9zIGFuZCBzbGlkZXM6IGh0dHA6Ly9yLWRhdGF0YWJsZS5jb21cbiJ9 -->
-<pre><code>package ‘data.table’ was built under R version 3.3.2data.table 1.10.4.3
-**********
-This installation of data.table has not detected OpenMP support. It should still work but in single-threaded mode. If this is a Mac, please ensure you are using R&gt;=3.4.0 and have installed the MacOS binary package from CRAN: see ?install.packages, the 'type=' argument and the 'Binary packages' section. If you compiled from source, please reinstall and precisely follow the installation instructions on the data.table homepage. This warning message should not occur on Windows or Linux. If it does and you've followed the installation instructions on the data.table homepage, please file a GitHub issue.
-**********
-  The fastest way to learn (by data.table authors): https://www.datacamp.com/courses/data-analysis-the-data-table-way
-  Documentation: ?data.table, example(data.table) and browseVignettes(&quot;data.table&quot;)
-  Release notes, videos and slides: http://r-datatable.com</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDigJhnZW9zcGhlcmXigJkgd2FzIGJ1aWx0IHVuZGVyIFIgdmVyc2lvbiAzLjMuMlxuIn0= -->
+<pre><code>package ‘geosphere’ was built under R version 3.3.2</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShkcGx5cilcbmBgYCJ9 -->
-<pre class="r"><code>library(dplyr)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShkYXRhLnRhYmxlKVxubGlicmFyeShkcGx5cilcbmxpYnJhcnkodGlkeXZlcnNlKVxuYGBgIn0= -->
+<pre class="r"><code>library(data.table)
+library(dplyr)
+library(tidyverse)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDigJhkcGx5cuKAmSB3YXMgYnVpbHQgdW5kZXIgUiB2ZXJzaW9uIDMuMy4yXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYZHBseXLigJlcblxuVGhlIGZvbGxvd2luZyBvYmplY3RzIGFyZSBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOmRhdGEudGFibGXigJk6XG5cbiAgICBiZXR3ZWVuLCBmaXJzdCwgbGFzdFxuXG5UaGUgZm9sbG93aW5nIG9iamVjdHMgYXJlIG1hc2tlZCBmcm9tIOKAmHBhY2thZ2U6c3RhdHPigJk6XG5cbiAgICBmaWx0ZXIsIGxhZ1xuXG5UaGUgZm9sbG93aW5nIG9iamVjdHMgYXJlIG1hc2tlZCBmcm9tIOKAmHBhY2thZ2U6YmFzZeKAmTpcblxuICAgIGludGVyc2VjdCwgc2V0ZGlmZiwgc2V0ZXF1YWwsIHVuaW9uXG4ifQ== -->
-<pre><code>package ‘dplyr’ was built under R version 3.3.2
-Attaching package: ‘dplyr’
-
-The following objects are masked from ‘package:data.table’:
-
-    between, first, last
-
-The following objects are masked from ‘package:stats’:
-
-    filter, lag
-
-The following objects are masked from ‘package:base’:
-
-    intersect, setdiff, setequal, union</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXHUwMDFiWzMwbeKUgCBcdTAwMWJbMW1BdHRhY2hpbmcgcGFja2FnZXNcdTAwMWJbMjJtIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2UgMS4yLjEg4pSAXHUwMDFiWzM5bVxuXHUwMDFiWzMwbVx1MDAxYlszMm3inJRcdTAwMWJbMzBtIFx1MDAxYlszNG1nZ3Bsb3QyXHUwMDFiWzMwbSAyLjIuMSAgICAgXHUwMDFiWzMybeKclFx1MDAxYlszMG0gXHUwMDFiWzM0bXJlYWRyICBcdTAwMWJbMzBtIDEuMS4xXG5cdTAwMWJbMzJt4pyUXHUwMDFiWzMwbSBcdTAwMWJbMzRtdGliYmxlIFx1MDAxYlszMG0gMS40LjIgICAgIFx1MDAxYlszMm3inJRcdTAwMWJbMzBtIFx1MDAxYlszNG1wdXJyciAgXHUwMDFiWzMwbSAwLjIuNVxuXHUwMDFiWzMybeKclFx1MDAxYlszMG0gXHUwMDFiWzM0bXRpZHlyICBcdTAwMWJbMzBtIDAuOC4xICAgICBcdTAwMWJbMzJt4pyUXHUwMDFiWzMwbSBcdTAwMWJbMzRtc3RyaW5nclx1MDAxYlszMG0gMS4zLjFcblx1MDAxYlszMm3inJRcdTAwMWJbMzBtIFx1MDAxYlszNG1nZ3Bsb3QyXHUwMDFiWzMwbSAyLjIuMSAgICAgXHUwMDFiWzMybeKclFx1MDAxYlszMG0gXHUwMDFiWzM0bWZvcmNhdHNcdTAwMWJbMzBtIDAuMy4wXHUwMDFiWzM5bVxucGFja2FnZSDigJhnZ3Bsb3Qy4oCZIHdhcyBidWlsdCB1bmRlciBSIHZlcnNpb24gMy4zLjJwYWNrYWdlIOKAmHJlYWRy4oCZIHdhcyBidWlsdCB1bmRlciBSIHZlcnNpb24gMy4zLjJcdTAwMWJbMzBt4pSAIFx1MDAxYlsxbUNvbmZsaWN0c1x1MDAxYlsyMm0g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAIHRpZHl2ZXJzZV9jb25mbGljdHMoKSDilIBcblx1MDAxYlszMW3inJZcdTAwMWJbMzBtIFx1MDAxYlszNG1kcGx5clx1MDAxYlszMG06Olx1MDAxYlszMm1iZXR3ZWVuKClcdTAwMWJbMzBtICAgbWFza3MgXHUwMDFiWzM0bWRhdGEudGFibGVcdTAwMWJbMzBtOjpiZXR3ZWVuKClcblx1MDAxYlszMW3inJZcdTAwMWJbMzBtIFx1MDAxYlszNG1kcGx5clx1MDAxYlszMG06Olx1MDAxYlszMm1maWx0ZXIoKVx1MDAxYlszMG0gICAgbWFza3MgXHUwMDFiWzM0bXN0YXRzXHUwMDFiWzMwbTo6ZmlsdGVyKClcblx1MDAxYlszMW3inJZcdTAwMWJbMzBtIFx1MDAxYlszNG1kcGx5clx1MDAxYlszMG06Olx1MDAxYlszMm1maXJzdCgpXHUwMDFiWzMwbSAgICAgbWFza3MgXHUwMDFiWzM0bWRhdGEudGFibGVcdTAwMWJbMzBtOjpmaXJzdCgpXG5cdTAwMWJbMzFt4pyWXHUwMDFiWzMwbSBcdTAwMWJbMzRtZHBseXJcdTAwMWJbMzBtOjpcdTAwMWJbMzJtbGFnKClcdTAwMWJbMzBtICAgICAgIG1hc2tzIFx1MDAxYlszNG1zdGF0c1x1MDAxYlszMG06OmxhZygpXG5cdTAwMWJbMzFt4pyWXHUwMDFiWzMwbSBcdTAwMWJbMzRtZHBseXJcdTAwMWJbMzBtOjpcdTAwMWJbMzJtbGFzdCgpXHUwMDFiWzMwbSAgICAgIG1hc2tzIFx1MDAxYlszNG1kYXRhLnRhYmxlXHUwMDFiWzMwbTo6bGFzdCgpXG5cdTAwMWJbMzFt4pyWXHUwMDFiWzMwbSBcdTAwMWJbMzRtcHVycnJcdTAwMWJbMzBtOjpcdTAwMWJbMzJtdHJhbnNwb3NlKClcdTAwMWJbMzBtIG1hc2tzIFx1MDAxYlszNG1kYXRhLnRhYmxlXHUwMDFiWzMwbTo6dHJhbnNwb3NlKClcdTAwMWJbMzltXG4ifQ== -->
-<pre><code>[30m─ [1mAttaching packages[22m ─────────── tidyverse 1.2.1 ─[39m
-[30m[32m✔[30m [34mggplot2[30m 2.2.1     [32m✔[30m [34mreadr  [30m 1.1.1
-[32m✔[30m [34mtibble [30m 1.4.2     [32m✔[30m [34mpurrr  [30m 0.2.5
-[32m✔[30m [34mtidyr  [30m 0.8.1     [32m✔[30m [34mstringr[30m 1.3.1
-[32m✔[30m [34mggplot2[30m 2.2.1     [32m✔[30m [34mforcats[30m 0.3.0[39m
-package ‘ggplot2’ was built under R version 3.3.2package ‘readr’ was built under R version 3.3.2[30m─ [1mConflicts[22m ──────────── tidyverse_conflicts() ─
-[31m✖[30m [34mdplyr[30m::[32mbetween()[30m   masks [34mdata.table[30m::between()
-[31m✖[30m [34mdplyr[30m::[32mfilter()[30m    masks [34mstats[30m::filter()
-[31m✖[30m [34mdplyr[30m::[32mfirst()[30m     masks [34mdata.table[30m::first()
-[31m✖[30m [34mdplyr[30m::[32mlag()[30m       masks [34mstats[30m::lag()
-[31m✖[30m [34mdplyr[30m::[32mlast()[30m      masks [34mdata.table[30m::last()
-[31m✖[30m [34mpurrr[30m::[32mtranspose()[30m masks [34mdata.table[30m::transpose()[39m</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZm9yKGogaW4gMToyNDAwKXtcbiAgVGFpcGVpX2J1aWxkaW5nW2osMjFdIDwtIG1pbmRpc3QoVGFpcGVpX2J1aWxkaW5nW2osYygxOSwyMCldKVtbMV1dXG4gIFRhaXBlaV9idWlsZGluZ1tqLDIyXSA8LSBtaW5kaXN0KFRhaXBlaV9idWlsZGluZ1tqLGMoMTksMjApXSlbWzJdXVxufVxuXG5gYGAifQ== -->
-<pre class="r"><code>for(j in 1:2400){
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTVJUIDwtIHJlYWRfY3N2KFwiL1VzZXJzL3Blbm55L0RvY3VtZW50cy9HaXRIdWIvUnN1bW1lcmNvZGUtRmluYWwtUHJvamVjdC9jb2RlL01SVC5jc3ZcIilcbmBgYCJ9 -->
+<pre class="r"><code>MRT &lt;- read_csv(&quot;/Users/penny/Documents/GitHub/Rsummercode-Final-Project/code/MRT.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTWlzc2luZyBjb2x1bW4gbmFtZXMgZmlsbGVkIGluOiAnWDEnIFsxXVBhcnNlZCB3aXRoIGNvbHVtbiBzcGVjaWZpY2F0aW9uOlxuY29scyhcbiAgWDEgPSBjb2xfaW50ZWdlcigpLFxuICBTdGF0aW9uID0gY29sX2NoYXJhY3RlcigpLFxuICBMaW5lID0gY29sX2NoYXJhY3RlcigpLFxuICBMaW5lMiA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgbGF0ID0gY29sX2RvdWJsZSgpLFxuICBsb24gPSBjb2xfZG91YmxlKClcbilcbiJ9 -->
+<pre><code>Missing column names filled in: 'X1' [1]Parsed with column specification:
+cols(
+  X1 = col_integer(),
+  Station = col_character(),
+  Line = col_character(),
+  Line2 = col_character(),
+  lat = col_double(),
+  lon = col_double()
+)</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVGFpcGVpX2J1aWxkaW5nIDwtIHJlYWRSRFMoXCIvVXNlcnMvcGVubnkvRG9jdW1lbnRzL0dpdEh1Yi9Sc3VtbWVyY29kZS1GaW5hbC1Qcm9qZWN0L2NvZGUvVGFpcGVpX2J1aWxkaW5nXCIpXG5taW5kaXN0IDwtIGZ1bmN0aW9uKGNvb3JkaW5hdGUpe1xuZGlzdCA8LSBjKClcbmZvcihpIGluIDE6MTA4KXtcbiAgZGlzdFtpXSA8LSBkaXN0bShjb29yZGluYXRlLCBNUlRbaSxjKDYsNSldKVxufVxuZGlzdGFuY2UgPC0gbWluKGRpc3QpXG5zdGF0aW9uIDwtIE1SVCRTdGF0aW9uW3doaWNoLm1pbihkaXN0KV1cbnJldHVybihsaXN0KGRpc3RhbmNlLCBzdGF0aW9uKSlcbn1cblRhaXBlaV9idWlsZGluZyRkaXN0YW5jZSA8LSBjKE5BKVxuVGFpcGVpX2J1aWxkaW5nJFN0YXRpb24gPC0gYyhOQSlcbmZvcihqIGluIDI0MDE6MzU5OSl7XG4gIFRhaXBlaV9idWlsZGluZ1tqLDIxXSA8LSBtaW5kaXN0KFRhaXBlaV9idWlsZGluZ1tqLGMoMTksMjApXSlbWzFdXVxuICBUYWlwZWlfYnVpbGRpbmdbaiwyMl0gPC0gbWluZGlzdChUYWlwZWlfYnVpbGRpbmdbaixjKDE5LDIwKV0pW1syXV1cbn1cbnNhdmVSRFMoVGFpcGVpX2J1aWxkaW5nLCBmaWxlID0gXCJUYWlwZWlfYnVpbGRpbmdcIilcbmBgYCJ9 -->
+<pre class="r"><code>Taipei_building &lt;- readRDS(&quot;/Users/penny/Documents/GitHub/Rsummercode-Final-Project/code/Taipei_building&quot;)
+mindist &lt;- function(coordinate){
+dist &lt;- c()
+for(i in 1:108){
+  dist[i] &lt;- distm(coordinate, MRT[i,c(6,5)])
+}
+distance &lt;- min(dist)
+station &lt;- MRT$Station[which.min(dist)]
+return(list(distance, station))
+}
+Taipei_building$distance &lt;- c(NA)
+Taipei_building$Station &lt;- c(NA)
+for(j in 2401:3599){
   Taipei_building[j,21] &lt;- mindist(Taipei_building[j,c(19,20)])[[1]]
   Taipei_building[j,22] &lt;- mindist(Taipei_building[j,c(19,20)])[[2]]
 }
-</code></pre>
+saveRDS(Taipei_building, file = &quot;Taipei_building&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CiMgaW5zdGFsbC5wYWNrYWdlcygiZ2Vvc3BoZXJlIikKbGlicmFyeShnZW9zcGhlcmUpCmxpYnJhcnkoZGF0YS50YWJsZSkKbGlicmFyeShkcGx5cikKbGlicmFyeSh0aWR5dmVyc2UpCmBgYAoKYGBge3J9Ck1SVCA8LSByZWFkX2NzdigiL1VzZXJzL3Blbm55L0RvY3VtZW50cy9HaXRIdWIvUnN1bW1lcmNvZGUtRmluYWwtUHJvamVjdC9jb2RlL01SVC5jc3YiKQpUYWlwZWlfYnVpbGRpbmcgPC0gcmVhZFJEUygiL1VzZXJzL3Blbm55L0RvY3VtZW50cy9HaXRIdWIvUnN1bW1lcmNvZGUtRmluYWwtUHJvamVjdC9jb2RlL1RhaXBlaV9idWlsZGluZyIpCgptaW5kaXN0IDwtIGZ1bmN0aW9uKGNvb3JkaW5hdGUpewpkaXN0IDwtIGMoKQpmb3IoaSBpbiAxOjEwOCl7CiAgZGlzdFtpXSA8LSBkaXN0bShjb29yZGluYXRlLCBNUlRbaSxjKDYsNSldKQp9CgpkaXN0YW5jZSA8LSBtaW4oZGlzdCkKc3RhdGlvbiA8LSBNUlQkU3RhdGlvblt3aGljaC5taW4oZGlzdCldCgpyZXR1cm4obGlzdChkaXN0YW5jZSwgc3RhdGlvbikpCn0KClRhaXBlaV9idWlsZGluZyRkaXN0YW5jZSA8LSBjKE5BKQpUYWlwZWlfYnVpbGRpbmckU3RhdGlvbiA8LSBjKE5BKQoKZm9yKGogaW4gMToyNDAwKXsKICBUYWlwZWlfYnVpbGRpbmdbaiwyMV0gPC0gbWluZGlzdChUYWlwZWlfYnVpbGRpbmdbaixjKDE5LDIwKV0pW1sxXV0KICBUYWlwZWlfYnVpbGRpbmdbaiwyMl0gPC0gbWluZGlzdChUYWlwZWlfYnVpbGRpbmdbaixjKDE5LDIwKV0pW1syXV0KfQoKc2F2ZVJEUyhUYWlwZWlfYnVpbGRpbmcsIGZpbGUgPSAiVGFpcGVpX2J1aWxkaW5nIikKYGBgCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CiMgaW5zdGFsbC5wYWNrYWdlcygiZ2Vvc3BoZXJlIikKbGlicmFyeShnZW9zcGhlcmUpCmxpYnJhcnkoZGF0YS50YWJsZSkKbGlicmFyeShkcGx5cikKbGlicmFyeSh0aWR5dmVyc2UpCmBgYAoKYGBge3J9Ck1SVCA8LSByZWFkX2NzdigiL1VzZXJzL3Blbm55L0RvY3VtZW50cy9HaXRIdWIvUnN1bW1lcmNvZGUtRmluYWwtUHJvamVjdC9jb2RlL01SVC5jc3YiKQpUYWlwZWlfYnVpbGRpbmcgPC0gcmVhZFJEUygiL1VzZXJzL3Blbm55L0RvY3VtZW50cy9HaXRIdWIvUnN1bW1lcmNvZGUtRmluYWwtUHJvamVjdC9jb2RlL1RhaXBlaV9idWlsZGluZyIpCgptaW5kaXN0IDwtIGZ1bmN0aW9uKGNvb3JkaW5hdGUpewpkaXN0IDwtIGMoKQpmb3IoaSBpbiAxOjEwOCl7CiAgZGlzdFtpXSA8LSBkaXN0bShjb29yZGluYXRlLCBNUlRbaSxjKDYsNSldKQp9CgpkaXN0YW5jZSA8LSBtaW4oZGlzdCkKc3RhdGlvbiA8LSBNUlQkU3RhdGlvblt3aGljaC5taW4oZGlzdCldCgpyZXR1cm4obGlzdChkaXN0YW5jZSwgc3RhdGlvbikpCn0KCmZvcihqIGluIDM2MDA6NDgwMCl7CiAgVGFpcGVpX2J1aWxkaW5nW2osMjFdIDwtIG1pbmRpc3QoVGFpcGVpX2J1aWxkaW5nW2osYygxOSwyMCldKVtbMV1dCiAgVGFpcGVpX2J1aWxkaW5nW2osMjJdIDwtIG1pbmRpc3QoVGFpcGVpX2J1aWxkaW5nW2osYygxOSwyMCldKVtbMl1dCn0KCnNhdmVSRFMoVGFpcGVpX2J1aWxkaW5nLCBmaWxlID0gIlRhaXBlaV9idWlsZGluZyIpCmBgYAoK</div>
 
 
 

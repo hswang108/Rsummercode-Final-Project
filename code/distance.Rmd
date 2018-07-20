@@ -27,10 +27,7 @@ station <- MRT$Station[which.min(dist)]
 return(list(distance, station))
 }
 
-Taipei_building$distance <- c(NA)
-Taipei_building$Station <- c(NA)
-
-for(j in 1:2400){
+for(j in 3600:4800){
   Taipei_building[j,21] <- mindist(Taipei_building[j,c(19,20)])[[1]]
   Taipei_building[j,22] <- mindist(Taipei_building[j,c(19,20)])[[2]]
 }
