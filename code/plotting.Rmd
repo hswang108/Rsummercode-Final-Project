@@ -36,6 +36,10 @@ tpemap <- ggplot() +
                  colour = "black", 
                  fill = "white",
                  size = 0.25) +
+    geom_point(data = df[df$Unit < min,],
+               aes(x = lon, y = lat),
+               colour = "yellow",
+               size = 0.001) +   
     geom_point(data = df[(df$Unit < max) & (df$Unit >= min),],
                aes(x = lon, y = lat, color = Unit),
                size = 0.001) +
@@ -44,20 +48,16 @@ tpemap <- ggplot() +
                aes(x = lon, y = lat),
                colour = "red",
                size = 0.001) +
-    geom_point(data = df[df$Unit < min,],
-               aes(x = lon, y = lat),
-               colour = "yellow",
-               size = 0.001) +   
     geom_point(data = MRT,
              aes(x = lon, y = lat, shape = Line),
              color = "blue",
-             size = 1) +
+             size = 0.7) +
     scale_shape_manual(values = shps, guide = F) +
     coord_map() 
 return(tpemap)
 }
 
-print(plot_map(Taipei_building, 100, 20))
+print(plot_map(Taipei_building, 120, 20))
 ggsave("tpemap.pdf")
 ```
 

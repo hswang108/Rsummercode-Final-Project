@@ -194,8 +194,9 @@ library(tidyverse)</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTVJUIDwtIHJlYWRfY3N2KFwiL1VzZXJzL3Blbm55L0RvY3VtZW50cy9HaXRIdWIvUnN1bW1lcmNvZGUtRmluYWwtUHJvamVjdC9jb2RlL01SVC5jc3ZcIilcbmBgYCJ9 -->
-<pre class="r"><code>MRT &lt;- read_csv(&quot;/Users/penny/Documents/GitHub/Rsummercode-Final-Project/code/MRT.csv&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTVJUIDwtIHJlYWRfY3N2KFwiL1VzZXJzL3Blbm55L0RvY3VtZW50cy9HaXRIdWIvUnN1bW1lcmNvZGUtRmluYWwtUHJvamVjdC9jb2RlL01SVC5jc3ZcIilcblxuYGBgIn0= -->
+<pre class="r"><code>MRT &lt;- read_csv(&quot;/Users/penny/Documents/GitHub/Rsummercode-Final-Project/code/MRT.csv&quot;)
+</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiTWlzc2luZyBjb2x1bW4gbmFtZXMgZmlsbGVkIGluOiAnWDEnIFsxXVBhcnNlZCB3aXRoIGNvbHVtbiBzcGVjaWZpY2F0aW9uOlxuY29scyhcbiAgWDEgPSBjb2xfaW50ZWdlcigpLFxuICBTdGF0aW9uID0gY29sX2NoYXJhY3RlcigpLFxuICBMaW5lID0gY29sX2NoYXJhY3RlcigpLFxuICBMaW5lMiA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgbGF0ID0gY29sX2RvdWJsZSgpLFxuICBsb24gPSBjb2xfZG91YmxlKClcbilcbiJ9 -->
 <pre><code>Missing column names filled in: 'X1' [1]Parsed with column specification:
@@ -208,30 +209,11 @@ cols(
   lon = col_double()
 )</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVGFpcGVpX2J1aWxkaW5nIDwtIHJlYWRSRFMoXCIvVXNlcnMvcGVubnkvRG9jdW1lbnRzL0dpdEh1Yi9Sc3VtbWVyY29kZS1GaW5hbC1Qcm9qZWN0L2NvZGUvVGFpcGVpX2J1aWxkaW5nXCIpXG5taW5kaXN0IDwtIGZ1bmN0aW9uKGNvb3JkaW5hdGUpe1xuZGlzdCA8LSBjKClcbmZvcihpIGluIDE6MTA4KXtcbiAgZGlzdFtpXSA8LSBkaXN0bShjb29yZGluYXRlLCBNUlRbaSxjKDYsNSldKVxufVxuZGlzdGFuY2UgPC0gbWluKGRpc3QpXG5zdGF0aW9uIDwtIE1SVCRTdGF0aW9uW3doaWNoLm1pbihkaXN0KV1cbnJldHVybihsaXN0KGRpc3RhbmNlLCBzdGF0aW9uKSlcbn1cblRhaXBlaV9idWlsZGluZyRkaXN0YW5jZSA8LSBjKE5BKVxuVGFpcGVpX2J1aWxkaW5nJFN0YXRpb24gPC0gYyhOQSlcbmZvcihqIGluIDI0MDE6MzU5OSl7XG4gIFRhaXBlaV9idWlsZGluZ1tqLDIxXSA8LSBtaW5kaXN0KFRhaXBlaV9idWlsZGluZ1tqLGMoMTksMjApXSlbWzFdXVxuICBUYWlwZWlfYnVpbGRpbmdbaiwyMl0gPC0gbWluZGlzdChUYWlwZWlfYnVpbGRpbmdbaixjKDE5LDIwKV0pW1syXV1cbn1cbnNhdmVSRFMoVGFpcGVpX2J1aWxkaW5nLCBmaWxlID0gXCJUYWlwZWlfYnVpbGRpbmdcIilcbmBgYCJ9 -->
-<pre class="r"><code>Taipei_building &lt;- readRDS(&quot;/Users/penny/Documents/GitHub/Rsummercode-Final-Project/code/Taipei_building&quot;)
-mindist &lt;- function(coordinate){
-dist &lt;- c()
-for(i in 1:108){
-  dist[i] &lt;- distm(coordinate, MRT[i,c(6,5)])
-}
-distance &lt;- min(dist)
-station &lt;- MRT$Station[which.min(dist)]
-return(list(distance, station))
-}
-Taipei_building$distance &lt;- c(NA)
-Taipei_building$Station &lt;- c(NA)
-for(j in 2401:3599){
-  Taipei_building[j,21] &lt;- mindist(Taipei_building[j,c(19,20)])[[1]]
-  Taipei_building[j,22] &lt;- mindist(Taipei_building[j,c(19,20)])[[2]]
-}
-saveRDS(Taipei_building, file = &quot;Taipei_building&quot;)</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CiMgaW5zdGFsbC5wYWNrYWdlcygiZ2Vvc3BoZXJlIikKbGlicmFyeShnZW9zcGhlcmUpCmxpYnJhcnkoZGF0YS50YWJsZSkKbGlicmFyeShkcGx5cikKbGlicmFyeSh0aWR5dmVyc2UpCmBgYAoKYGBge3J9Ck1SVCA8LSByZWFkX2NzdigiL1VzZXJzL3Blbm55L0RvY3VtZW50cy9HaXRIdWIvUnN1bW1lcmNvZGUtRmluYWwtUHJvamVjdC9jb2RlL01SVC5jc3YiKQpUYWlwZWlfYnVpbGRpbmcgPC0gcmVhZFJEUygiL1VzZXJzL3Blbm55L0RvY3VtZW50cy9HaXRIdWIvUnN1bW1lcmNvZGUtRmluYWwtUHJvamVjdC9jb2RlL1RhaXBlaV9idWlsZGluZyIpCgptaW5kaXN0IDwtIGZ1bmN0aW9uKGNvb3JkaW5hdGUpewpkaXN0IDwtIGMoKQpmb3IoaSBpbiAxOjEwOCl7CiAgZGlzdFtpXSA8LSBkaXN0bShjb29yZGluYXRlLCBNUlRbaSxjKDYsNSldKQp9CgpkaXN0YW5jZSA8LSBtaW4oZGlzdCkKc3RhdGlvbiA8LSBNUlQkU3RhdGlvblt3aGljaC5taW4oZGlzdCldCgpyZXR1cm4obGlzdChkaXN0YW5jZSwgc3RhdGlvbikpCn0KCmZvcihqIGluIDM2MDA6NDgwMCl7CiAgVGFpcGVpX2J1aWxkaW5nW2osMjFdIDwtIG1pbmRpc3QoVGFpcGVpX2J1aWxkaW5nW2osYygxOSwyMCldKVtbMV1dCiAgVGFpcGVpX2J1aWxkaW5nW2osMjJdIDwtIG1pbmRpc3QoVGFpcGVpX2J1aWxkaW5nW2osYygxOSwyMCldKVtbMl1dCn0KCnNhdmVSRFMoVGFpcGVpX2J1aWxkaW5nLCBmaWxlID0gIlRhaXBlaV9idWlsZGluZyIpCmBgYAoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CiMgaW5zdGFsbC5wYWNrYWdlcygiZ2Vvc3BoZXJlIikKbGlicmFyeShnZW9zcGhlcmUpCmxpYnJhcnkoZGF0YS50YWJsZSkKbGlicmFyeShkcGx5cikKbGlicmFyeSh0aWR5dmVyc2UpCmBgYAoKYGBge3J9Ck1SVCA8LSByZWFkX2NzdigiL1VzZXJzL3Blbm55L0RvY3VtZW50cy9HaXRIdWIvUnN1bW1lcmNvZGUtRmluYWwtUHJvamVjdC9jb2RlL01SVC5jc3YiKQpUYWlwZWlfYnVpbGRpbmcgPC0gcmVhZFJEUygiL1VzZXJzL3Blbm55L0RvY3VtZW50cy9HaXRIdWIvUnN1bW1lcmNvZGUtRmluYWwtUHJvamVjdC9jb2RlL1RhaXBlaV9idWlsZGluZyIpCgptaW5kaXN0IDwtIGZ1bmN0aW9uKGNvb3JkaW5hdGUpewpkaXN0IDwtIGMoKQpmb3IoaSBpbiAxOjEwOCl7CiAgZGlzdFtpXSA8LSBkaXN0bShjb29yZGluYXRlLCBNUlRbaSxjKDYsNSldKQp9CgpkaXN0YW5jZSA8LSBtaW4oZGlzdCkKc3RhdGlvbiA8LSBNUlQkU3RhdGlvblt3aGljaC5taW4oZGlzdCldCgpyZXR1cm4obGlzdChkaXN0YW5jZSwgc3RhdGlvbikpCn0KCmZvcihqIGluIDM2MDA6NjAwMCl7CiAgVGFpcGVpX2J1aWxkaW5nW2osMjFdIDwtIG1pbmRpc3QoVGFpcGVpX2J1aWxkaW5nW2osYygxOSwyMCldKVtbMV1dCiAgVGFpcGVpX2J1aWxkaW5nW2osMjJdIDwtIG1pbmRpc3QoVGFpcGVpX2J1aWxkaW5nW2osYygxOSwyMCldKVtbMl1dCn0KCnNhdmVSRFMoVGFpcGVpX2J1aWxkaW5nLCBmaWxlID0gIlRhaXBlaV9idWlsZGluZyIpCmBgYAoK</div>
 
 
 

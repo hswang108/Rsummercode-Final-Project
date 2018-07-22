@@ -36,8 +36,8 @@ head(Taipei_building)
 ##找出地址對應經緯度
 ```{r}
 # 使用geocode找出地址的經緯度座標
-while(sum(is.na(Taipei_building$lon[2401:3600])) != 0){
-for(i in 2401:3600){
+while(sum(is.na(Taipei_building$lon[5501:6000])) != 0){
+for(i in 5501:6000){
     if(is.na(Taipei_building$lon[i]) == T){
         geotype <- geocode(Taipei_building$Address[i])
         Taipei_building$lon[i] <- geotype$lon
