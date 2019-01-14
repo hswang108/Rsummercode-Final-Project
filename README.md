@@ -29,3 +29,7 @@
 * 算出每筆成交資料與最近捷運站的距離
 * 依變數為每坪成交價，自變數為距離
 * 控制其他變數
+
+
+## 研究成果
+https://docs.google.com/presentation/d/13cufX-9yrx3lrQZggXTGRiIt5BSVCEa_arLB8mTtZ-o/edit?fbclid=IwAR2hU35nrN5P0wbGNQssIwl53sTdGyJe3X_C-0IV0mUKk6M2AJj7gDvUNvc#
