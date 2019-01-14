@@ -32,4 +32,4 @@
 
 
 ## 研究成果
-https://docs.google.com/presentation/d/13cufX-9yrx3lrQZggXTGRiIt5BSVCEa_arLB8mTtZ-o/edit?fbclid=IwAR2hU35nrN5P0wbGNQssIwl53sTdGyJe3X_C-0IV0mUKk6M2AJj7gDvUNvc#
+[成果](/捷運站與房價關係.pdf
